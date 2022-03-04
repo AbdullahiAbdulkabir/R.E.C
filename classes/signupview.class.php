@@ -12,6 +12,4 @@ if (isset($_POST['submit'])) {
 
     $newUser = new SignupContr($_SESSION['name'], $_SESSION['email'], $phoneNumber, $gender, $password, $conpass);
     $newUser->authenticate();
-
-    // echo $password;
 }

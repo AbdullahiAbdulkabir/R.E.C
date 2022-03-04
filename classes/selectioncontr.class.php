@@ -1,15 +1,6 @@
 <?php
 
-include "../includes/loader.inc.php";
-
-
-// if (date('h:s') > "19:52") {
-//     header("location: ../index.php");
-// }
-
-// if (date("H:i:s") < "23:59:59") {
-//     $retVal = "disable";
-// }
+include "database.class.php";
 
 class Controller extends DataBase {
 
@@ -117,17 +108,4 @@ class Controller extends DataBase {
         $this->updateWird($this->part_1, $this->part_2, $this->email);
         $this->updateDailies($this->tarawih, $this->family_ties, $this->iftar_saim, $this->sadaqah, $this->salat_duha, $this->salat_taobah, $this->salat_tasbih, $this->book_reading, $this->email);
     }
-
 }
-// $reader;
-// if (date('H:i') > "09:28") {
-//     if (isset($_POST['salat_taobah'])) {
-//         $reader = 1;
-//     }
-//     else {
-//     $reader = 0;
-// }
-// if ($reader > 0) {
-//     echo 'disabled';
-// }
-// }

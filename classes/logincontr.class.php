@@ -1,7 +1,7 @@
 <?php
 // session_start();
 
-include "../includes/loader.inc.php";
+include "database.class.php";
 
 class LoginContr extends DataBase {
     private $email;

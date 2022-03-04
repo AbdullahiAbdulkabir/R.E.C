@@ -1,6 +1,5 @@
 <?php
 session_start();
-include "includes/loader.inc.php";
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -9,9 +8,10 @@ include "includes/loader.inc.php";
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
-    <form action="classes/loginview.class.php" method="post" style="background-color: ghostwhite;">
+    <form action="classes/loginview.class.php" method="post">
     <?php
     $fullpath = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
 

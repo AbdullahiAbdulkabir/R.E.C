@@ -1,6 +1,6 @@
 <?php
 session_start();
-include 'controller.class.php';
+include 'selectioncontr.class.php';
 
 if (isset($_POST['submit'])) {
         
@@ -26,12 +26,14 @@ if (isset($_POST['submit'])) {
     $_SESSION['Rawatib_isha'] = isset($_POST['Rawatib_isha']) ? 1 : 0;
 
     //Quran
-    $_SESSION['tilawah'] = isset($_POST['tilawah']) ? 1 : 0;
+
+    //60 juz for tilawah so 2 for each day selected to make up 30
+    $_SESSION['tilawah'] = isset($_POST['tilawah']) ? 2 : 0;
     $_SESSION['tadabbur'] = isset($_POST['tadabbur']) ? 1 : 0;
     $_SESSION['hifz'] = isset($_POST['hifz']) ? 1 : 0;
 
     //Morning and evening aadhkar
-    $_SESSION['morning_adkar'] = isset($_POST['morning_adkar']) ? 1 : 0;
+    $_SESSION['morning_adhkar'] = isset($_POST['morning_adhkar']) ? 1 : 0;
     $_SESSION['evening_adhkar'] = isset($_POST['evening_adhkar']) ? 1 : 0;
 
     //Wird Dua
@@ -52,8 +54,8 @@ if (isset($_POST['submit'])) {
     $data = new Controller($_SESSION['Jamah_subh'], $_SESSION['Jamah_zuhr'], $_SESSION['Jamah_asr'], $_SESSION['Jamah_magrib'], $_SESSION['Jamah_isha'],
                            $_SESSION['Adhkar_subh'], $_SESSION['Adhkar_zuhr'], $_SESSION['Adhkar_asr'], $_SESSION['Adhkar_magrib'], $_SESSION['Adhkar_isha'],
                             $_SESSION['Rawatib_subh'], $_SESSION['Rawatib_zuhr'], $_SESSION['Rawatib_asr'], $_SESSION['Rawatib_magrib'], $_SESSION['Rawatib_isha'], 
-                            $_SESSION['tilawah'], $_SESSION['tadabbur'], $_SESSION['hifz'], $_SESSION['morning_adkar'], $_SESSION['evening_adhkar'], 
-                            $_SESSION['part_1'], $_SESSION['part_2'], $_SESSION['tarawih'], $_SESSION['family_ties'], $_SESSION['family_ties'], $_SESSION['sadaqah'], 
+                            $_SESSION['tilawah'], $_SESSION['tadabbur'], $_SESSION['hifz'], $_SESSION['morning_adhkar'], $_SESSION['evening_adhkar'], 
+                            $_SESSION['part_1'], $_SESSION['part_2'], $_SESSION['tarawih'], $_SESSION['family_ties'], $_SESSION['iftar_saim'], $_SESSION['sadaqah'], 
                             $_SESSION['salat_duha'], $_SESSION['salat_taobah'], $_SESSION['salat_tasbih'], $_SESSION['book_reading'], $_SESSION['email']);
 
     $data->updating();

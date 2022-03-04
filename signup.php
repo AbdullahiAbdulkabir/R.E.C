@@ -1,5 +1,5 @@
 <?php
-    include 'includes/loader.inc.php';
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -10,7 +10,7 @@
     <title>Sign Up</title>
 </head>
 <body>
-    <form action="classes/signupview.class.php" method="POST" style="background-color: ghostwhite;">
+    <form action="classes/signupview.class.php" method="POST"">
     <?php
         $fullpath = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
 

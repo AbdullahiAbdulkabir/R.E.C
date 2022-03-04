@@ -1,9 +1,7 @@
 <?php
     
 session_start();
-include "classes/dashview.class.php";
-
-$progress = new DashContr($_SESSION['email'])
+include 'classes/dashview.class.php';
 
 ?>
 <!DOCTYPE html>
@@ -17,6 +15,7 @@ $progress = new DashContr($_SESSION['email'])
 </head>
 <body>
     <h1 align="center">Dashboard</h1>
+    <p>Your progress <b><?php $_SESSION['name']; ?></b></p>
         <table>
             <tr>
                 <td>

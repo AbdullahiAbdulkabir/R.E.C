@@ -1,6 +1,6 @@
 <?php
 
-include 'includes/loader.inc.php';
+session_start();
 
 ?>
 <!DOCTYPE html>
@@ -15,24 +15,24 @@ include 'includes/loader.inc.php';
 <body>
     <h1>Ramadan Evaluation Chart</h1>
     <h3>Date to be put here</h3>
-    <p><?php echo $_SESSION['email'];?></p>
-    <form action="classes/view.class.php" method="post">
+    <p><?php echo 'Assalamalaykum Warahamatullah ' ?><b><?php echo $_SESSION['name'];?></b></p>
+    <form action="classes/selectionview.class.php" method="post">
         <h3 align="center">Salat In Jamah</h3>
         <table>
         <tr>
           <td align="center">
             <label for="Jamah_subh">Subh</label><br>
-            <input type="checkbox" name="Jamah_subh"<?php $reader = 1; if (date('H:i:s') < "23:59:59") {if (isset($_POST['salat_taobah'])) {$reader += 1;}}else {$reader = 0;} if ($reader > 0) {echo 'disabled';}?>>
+            <input type="checkbox" name="Jamah_subh">
           </td>
           <td></td>
           <td align="center">
             <label for="Jamah_zuhr">Zuhr</label><br>
-            <input type="checkbox" name="Jamah_zuhr"<?php $reader = 1; if (date('H:i:s') < "23:59:59") {if (isset($_POST['salat_taobah'])) {$reader += 1;}}else {$reader = 0;} if ($reader > 0) {echo 'disabled';}?>>
+            <input type="checkbox" name="Jamah_zuhr">
           </td>
           <td></td>
           <td align="center">
             <label for="Jamah_asr">Asr</label><br>
-            <input type="checkbox" name="Jamah_asr"<?php $reader = 1; if (date('H:i:s') < "23:59:59") {if (isset($_POST['salat_taobah'])) {$reader += 1;}}else {$reader = 0;} if ($reader > 0) {echo 'disabled';}?>>
+            <input type="checkbox" name="Jamah_asr">
           </td>
           <td></td>
           <td align="center">
@@ -102,7 +102,7 @@ include 'includes/loader.inc.php';
           <td></td>
           <td align="center">
             <label for="Rawatib_isha">Isha</label><br>
-            <input type="checkbox" name="Adhkar_isha">
+            <input type="checkbox" name="Rawatib_isha">
           </td>
         </tr>
         </table>
@@ -178,8 +178,8 @@ include 'includes/loader.inc.php';
             <input type="checkbox" name="salat_duha">
           </td>
           <td align="center">
-            <label for="salat_taobah">Salat Taobah<?php echo date('H:i')?></label><br>
-              <input type="checkbox" name="salat_taobah" <?php $reader = 0; if (date('H:i') < "12:43") {if (isset($_POST['salat_tasbih'])) {$reader += 1;}}else {$reader = 0;} if ($reader > 0) {echo 'disabled';}?>>
+            <label for="salat_taobah">Salat Taobah</label><br>
+              <input type="checkbox" name="salat_taobah">
           </td>
           <td align="center">
             <label for="salat_tasbih">Salat Tasbih</label><br>

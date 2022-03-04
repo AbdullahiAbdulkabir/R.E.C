@@ -1,7 +1,8 @@
 <?php
+include 'conn.class.php';
 
 class DataBase extends Conn {
-    
+        
 //users table interation
     protected function createUser($name, $email, $phone_number, $gender, $pass) {
         $sql = "INSERT INTO Users (name, email, phone_number, gender, password) VALUES (?, ?, ?, ?, ?)";
@@ -131,24 +132,21 @@ class DataBase extends Conn {
     public function updateDailies($tarawih, $family_ties, $iftar_saim, $sadaqah, $salat_duha, $salat_taobah, $salat_tasbih, $book_reading, $email) {
         $sql = "UPDATE daily_activities SET tarawih = tarawih + ?, family_ties = family_ties + ?, iftar_saim = iftar_saim + ?, sadaqah = sadaqah + ?, salat_duha = salat_duha + ?, salat_taobah = salat_taobah + ?, salat_tasbih = salat_tasbih + ?, book_reading = book_reading + ? WHERE email = ?";
         $stmt = $this->connection()->prepare($sql);
-        $stmt->execute([$tarawih, $family_ties, $iftar_saim, $sadaqah, $salat_duha, $salat_taobah, $salat_tasbih, $book_reading], $email);
+        $stmt->execute([$tarawih, $family_ties, $iftar_saim, $sadaqah, $salat_duha, $salat_taobah, $salat_tasbih, $book_reading, $email]);
     }
     
-    //for dashboard calculations
+//for dashboard calculations
 
     public function totalJamah($email) {
         $sql = "SELECT total FROM salat_in_jamah WHERE email = ?";
         $stmt = $this->connection()->prepare($sql);
         $stmt->execute(array($email));
         $names = $stmt->fetchAll(PDO::FETCH_ASSOC);
-        // $score = $names[0]['total'];
-        // $percent = ($score/150) * 100;
         foreach ($names as $name) {
             $score = $name['total'];
             $percent = ($score/150) * 100;
-            return $percent;
+            return round($percent, 2);
         }
-        // return $percent;
     }
 
     public function totalAdhkar($email) {
@@ -156,12 +154,11 @@ class DataBase extends Conn {
         $stmt = $this->connection()->prepare($sql);
         $stmt->execute(array($email));
         $names = $stmt->fetchAll(PDO::FETCH_ASSOC);
-        // $score = $names[0]['total'];
-        // $percent = ($score/150) * 100;
         foreach ($names as $name) {
-            return $name['total'];
+            $score = $name['total'];
+            $percent = ($score/150) * 100;
+            return round($percent, 2);
         }
-        // return $percent;
     }
 
     public function totalRawatib($email) {
@@ -169,12 +166,11 @@ class DataBase extends Conn {
         $stmt = $this->connection()->prepare($sql);
         $stmt->execute(array($email));
         $names = $stmt->fetchAll(PDO::FETCH_ASSOC);
-        // $score = $names[0]['total'];
-        // $percent = ($score/150) * 100;
         foreach ($names as $name) {
-            return $name['total'];
+            $score = $name['total'];
+            $percent = ($score/150) * 100;
+            return round($percent, 2);
         }
-        // return $percent;
     }
 
     public function tilawah($email) {
@@ -182,12 +178,11 @@ class DataBase extends Conn {
         $stmt = $this->connection()->prepare($sql);
         $stmt->execute(array($email));
         $names = $stmt->fetchAll(PDO::FETCH_ASSOC);
-        // $score = $names[0]['total'];
-        // $percent = ($score/150) * 100;
         foreach ($names as $name) {
-            return $name['tilawah'];
+            $score = $name['tilawah'];
+            $percent = ($score/60) * 100;
+            return round($percent, 2);
         }
-        // return $percent;
     }
 
     public function tadabbur($email) {
@@ -195,12 +190,11 @@ class DataBase extends Conn {
         $stmt = $this->connection()->prepare($sql);
         $stmt->execute(array($email));
         $names = $stmt->fetchAll(PDO::FETCH_ASSOC);
-        // $score = $names[0]['total'];
-        // $percent = ($score/150) * 100;
         foreach ($names as $name) {
-            return $name['tadabbur'];
+            $score = $name['tadabbur'];
+            $percent = ($score/30) * 100;
+            return round($percent, 2);
         }
-        // return $percent;
     }
 
     public function hifz($email) {
@@ -208,12 +202,11 @@ class DataBase extends Conn {
         $stmt = $this->connection()->prepare($sql);
         $stmt->execute(array($email));
         $names = $stmt->fetchAll(PDO::FETCH_ASSOC);
-        // $score = $names[0]['total'];
-        // $percent = ($score/150) * 100;
         foreach ($names as $name) {
-            return $name['hifz'];
+            $score = $name['hifz'];
+            $percent = ($score/30) * 100;
+            return round($percent, 2);
         }
-        // return $percent;
     }
 
     public function totalMonEve($email) {
@@ -221,12 +214,11 @@ class DataBase extends Conn {
         $stmt = $this->connection()->prepare($sql);
         $stmt->execute(array($email));
         $names = $stmt->fetchAll(PDO::FETCH_ASSOC);
-        // $score = $names[0]['total'];
-        // $percent = ($score/150) * 100;
         foreach ($names as $name) {
-            return $name['total'];
+            $score = $name['total'];
+            $percent = ($score/60) * 100;
+            return round($percent, 2);
         }
-        // return $percent;
     }
 
     public function totalWird($email) {
@@ -234,12 +226,11 @@ class DataBase extends Conn {
         $stmt = $this->connection()->prepare($sql);
         $stmt->execute(array($email));
         $names = $stmt->fetchAll(PDO::FETCH_ASSOC);
-        // $score = $names[0]['total'];
-        // $percent = ($score/150) * 100;
         foreach ($names as $name) {
-            return $name['total'];
+            $score = $name['total'];
+            $percent = ($score/60) * 100;
+            return round($percent, 2);
         }
-        // return $percent;
     }
 
     public function tarawih($email) {
@@ -247,12 +238,11 @@ class DataBase extends Conn {
         $stmt = $this->connection()->prepare($sql);
         $stmt->execute(array($email));
         $names = $stmt->fetchAll(PDO::FETCH_ASSOC);
-        // $score = $names[0]['total'];
-        // $percent = ($score/150) * 100;
         foreach ($names as $name) {
-            return $name['tarawih'];
+            $score = $name['tarawih'];
+            $percent = ($score/30) * 100;
+            return round($percent, 2);
         }
-        // return $percent;
     }
 
     public function family_ties($email) {
@@ -260,12 +250,11 @@ class DataBase extends Conn {
         $stmt = $this->connection()->prepare($sql);
         $stmt->execute(array($email));
         $names = $stmt->fetchAll(PDO::FETCH_ASSOC);
-        // $score = $names[0]['total'];
-        // $percent = ($score/150) * 100;
         foreach ($names as $name) {
-            return $name['family_ties'];
+            $score = $name['family_ties'];
+            $percent = ($score/30) * 100;
+            return round($percent, 2);
         }
-        // return $percent;
     }
 
     public function iftar_saim($email) {
@@ -273,12 +262,11 @@ class DataBase extends Conn {
         $stmt = $this->connection()->prepare($sql);
         $stmt->execute(array($email));
         $names = $stmt->fetchAll(PDO::FETCH_ASSOC);
-        // $score = $names[0]['total'];
-        // $percent = ($score/150) * 100;
         foreach ($names as $name) {
-            return $name['iftar_saim'];
+            $score = $name['iftar_saim'];
+            $percent = ($score/30) * 100;
+            return round($percent, 2);
         }
-        // return $percent;
     }
 
     public function sadaqah($email) {
@@ -286,12 +274,11 @@ class DataBase extends Conn {
         $stmt = $this->connection()->prepare($sql);
         $stmt->execute(array($email));
         $names = $stmt->fetchAll(PDO::FETCH_ASSOC);
-        // $score = $names[0]['total'];
-        // $percent = ($score/150) * 100;
         foreach ($names as $name) {
-            return $name['sadaqah'];
+            $score = $name['sadaqah'];
+            $percent = ($score/30) * 100;
+            return round($percent, 2);
         }
-        // return $percent;
     }
 
     public function salat_duha($email) {
@@ -299,12 +286,11 @@ class DataBase extends Conn {
         $stmt = $this->connection()->prepare($sql);
         $stmt->execute(array($email));
         $names = $stmt->fetchAll(PDO::FETCH_ASSOC);
-        // $score = $names[0]['total'];
-        // $percent = ($score/150) * 100;
         foreach ($names as $name) {
-            return $name['salat_duha'];
+            $score = $name['salat_duha'];
+            $percent = ($score/30) * 100;
+            return round($percent, 2);
         }
-        // return $percent;
     }
 
     public function salat_taobah($email) {
@@ -312,12 +298,11 @@ class DataBase extends Conn {
         $stmt = $this->connection()->prepare($sql);
         $stmt->execute(array($email));
         $names = $stmt->fetchAll(PDO::FETCH_ASSOC);
-        // $score = $names[0]['total'];
-        // $percent = ($score/150) * 100;
         foreach ($names as $name) {
-            return $name['salat_taobah'];
+            $score = $name['salat_taobah'];
+            $percent = ($score/30) * 100;
+            return round($percent, 2);
         }
-        // return $percent;
     }
 
     public function salat_tasbih($email) {
@@ -325,12 +310,11 @@ class DataBase extends Conn {
         $stmt = $this->connection()->prepare($sql);
         $stmt->execute(array($email));
         $names = $stmt->fetchAll(PDO::FETCH_ASSOC);
-        // $score = $names[0]['total'];
-        // $percent = ($score/150) * 100;
         foreach ($names as $name) {
-            return $name['salat_tasbih'];
+            $score = $name['salat_tasbih'];
+            $percent = ($score/30) * 100;
+            return round($percent, 2);
         }
-        // return $percent;
     }
 
     public function book_reading($email) {
@@ -338,12 +322,27 @@ class DataBase extends Conn {
         $stmt = $this->connection()->prepare($sql);
         $stmt->execute(array($email));
         $names = $stmt->fetchAll(PDO::FETCH_ASSOC);
-        // $score = $names[0]['total'];
-        // $percent = ($score/150) * 100;
         foreach ($names as $name) {
-            return $name['book_reading'];
+            $score = $name['book_reading'];
+            $percent = ($score/30) * 100;
+            return round($percent, 2);
         }
-        // return $percent;
     }
 
 }
+
+//what i tried to do for the one time checking for checkboxes
+
+// $reader = 0;
+// if (date('H:i') < "12:43") {
+//     if (isset($_POST['salat_tasbih'])) {
+//         $reader = 1;
+//         }
+// }
+// else {
+//     $reader = 0;
+// }
+    
+// if ($reader > 0) {
+//     echo 'disabled';
+// }

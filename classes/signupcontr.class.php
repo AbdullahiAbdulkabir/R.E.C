@@ -1,7 +1,6 @@
 <?php
 
-// include "./index.php";
-include "../includes/loader.inc.php";
+include "database.class.php";
 
 
 class SignupContr extends DataBase {
@@ -53,7 +52,7 @@ class SignupContr extends DataBase {
             exit();
         }
         else {
-            $this->createUser($this->name, $this->email, $this->phoneNumber, $this->gender, $this->password);
+            $this->createUser($this->name, $this->email, $this->phoneNumber, $this->gender, md5($this->password));
             $this->addEmail_Jamah($this->email);
             $this->addEmail_AdhkarSalat($this->email);
             $this->addEmail_Rawatib($this->email);

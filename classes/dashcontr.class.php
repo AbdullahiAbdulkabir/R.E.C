@@ -1,4 +1,5 @@
 <?php
+include 'database.class.php';
 
 class DashContr extends DataBase {
     private $email;
