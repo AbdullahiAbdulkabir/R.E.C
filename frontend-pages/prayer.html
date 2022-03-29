@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ramadan Tasky</title>
+
+    <link rel="stylesheet" href="css/calendar/evo-calendar.min.css">
+    <link rel="stylesheet" href="css/calendar/evo-calendar.midnight-blue.min.css">
+    <link rel="stylesheet" href="css/bootstrap-5.0.2-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/custom.css">
+
+</head>
+<body>
+    <div class="container-fluid prayer">
+        <div class="row ">
+            <div class="col-11 col-md-8 col-lg-10 col-xl-8 rec-pages solawat">
+                <!-- <div class="row">
+                   
+                </div> -->
+                <div class="row check-card-section ">
+                    <div class="col-12 col-lg-7">
+                        <div id="calendar"></div>
+                    </div>
+                    <div class="col-11 col-lg-5 mx-auto">
+                        <div class="row mt-4">
+                            <h4 class="schedule">Schedule</h4>
+                            <div class="col-12 mb-3">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" name="check-solah" checked>
+                                    <label class="form-check-label mx-3" for="flexcheckDefault1" style="width: 90%">
+                                        <div class="card pr-3">
+                                            <div class="row">
+                                                <div class="col-3 card-images">
+                                                    <img src="assets/svgs/sunrise.svg" class="" alt="sunrise-logo">
+                                                </div>
+                                                <div class="col-9 col-md-7 col-lg-6 mx-auto">
+                                                    <div class="card-body">
+                                                        <div class="row">
+                                                            <p class="col-12 card-text solat-task-type">
+                                                                Subh
+                                                            </p>
+                                                            <p class="col-12 card-subtitle">02:00AM - 05:30AM</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="col-12 mb-3">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" name="check-solah">
+                                    <label class="form-check-label mx-3" for="flexcheckDefault1" style="width: 90%">
+                                        <div class="card pr-3">
+                                            <div class="row">
+                                                <div class="col-3 card-images">
+                                                    <img src="assets/svgs/dhur.svg" class="" alt="sun-noon-logo">
+                                                </div>
+                                                <div class="col-9 col-md-7 col-lg-6 mx-auto">
+                                                    <div class="card-body">
+                                                        <div class="row">
+                                                            <p class="col-12 card-text solat-task-type">
+                                                                Dhuhr
+                                                            </p>
+                                                            <p class="col-12 card-subtitle">02:00AM - 05:30AM</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="col-12 mb-3">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" name="check-solah">
+                                    <label class="form-check-label mx-3" for="flexcheckDefault1" style="width: 90%">
+                                        <div class="card pr-3">
+                                            <div class="row">
+                                                <div class="col-3 card-images">
+                                                    <img src="assets/svgs/asr.svg" class="" alt="sunset-start-logo">
+                                                </div>
+                                                <div class="col-9 col-md-7 col-lg-6 mx-auto">
+                                                    <div class="card-body">
+                                                        <div class="row">
+                                                            <p class="col-12 card-text solat-task-type">
+                                                                Asr
+                                                            </p>
+                                                            <p class="col-12 card-subtitle">02:00AM - 05:30AM</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="col-12 mb-3">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" name="check-solah">
+                                    <label class="form-check-label mx-3" for="flexcheckDefault1" style="width: 90%">
+                                        <div class="card pr-3">
+                                            <div class="row">
+                                                <div class="col-3 card-images">
+                                                    <img src="assets/svgs/sunset.svg" class="" alt="sunset-logo">
+                                                </div>
+                                                <div class="col-9 col-md-7 col-lg-6 mx-auto">
+                                                    <div class="card-body">
+                                                        <div class="row">
+                                                            <p class="col-12 card-text solat-task-type">
+                                                                Maghrib
+                                                            </p>
+                                                            <p class="col-12 card-subtitle">02:00AM - 05:30AM</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="col-12 mb-3">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" name="check-solah">
+                                    <label class="form-check-label mx-3" for="flexcheckDefault1" style="width: 90%">
+                                        <div class="card pr-3">
+                                            <div class="row">
+                                                <div class="col-3 card-images">
+                                                    <img src="assets/svgs/iftar.svg" class="" alt="night-logo">
+                                                </div>
+                                                <div class="col-9 col-md-7 col-lg-6 mx-auto">
+                                                    <div class="card-body">
+                                                        <div class="row">
+                                                            <p class="col-12 card-text solat-task-type">
+                                                                Isha
+                                                            </p>
+                                                            <p class="col-12 card-subtitle">02:00AM - 05:30AM</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row text-center">
+                            <div class="col-12 mt-2">
+                                <button type="submit" class="btn btn-success text-center">Done</button>
+                            </div>
+                       </div>
+                    </div>
+                </div>
+
+                
+            </div>        
+        </div>
+    </div>
+
+    
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+    <script src="css/calendar/evo-calendar.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('#calendar').evoCalendar({
+            })
+        })
+    </script>
+</body>
+</html>
